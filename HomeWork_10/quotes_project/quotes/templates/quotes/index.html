@@ -1,0 +1,21 @@
+<h1>Список цитат</h1>
+
+<!--<ul>-->
+<!--{% for quote in quotes %}-->
+<!--    <li>-->
+<!--        <p>"{{ quote.text }}"</p>-->
+<!--        <p>&#45;&#45; {{ quote.author.name }}</p>-->
+<!--    </li>-->
+<!--{% endfor %}-->
+<!--</ul>-->
+
+{% if quotes %}
+{% for quote in quotes %}
+<p>{{ quote.text }}</p>
+
+<p>-- {{ quote.author.fullname }}</p>
+
+{% endfor %}
+{% else %}
+Наразі цитати відсутні.
+{% endif %}

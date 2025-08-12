@@ -1,0 +1,13 @@
+{% extends 'quotes_app/base.html' %} {% block title %}Всі цитати{% endblock %} {% block content %}
+Всі цитати
+{% for quote in quotes %}
+{{ quote.quote }}
+
+{{ quote.author.fullname }}
+
+Теги: {% for tag in quote.get_tags_list %} {{ tag }}{% if not forloop.last %},{% endif %} {% endfor %}
+
+{% empty %}
+Наразі немає цитат.
+
+{% endfor %} {% endblock %}

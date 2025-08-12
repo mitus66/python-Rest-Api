@@ -1,0 +1,6 @@
+{% load static %}
+Головна Додати Автора Додати Цитату
+{% if user.is_authenticated %} Привіт, {{ user.username }}! Вийти {% else %} Реєстрація Увійти {% endif %}
+{% if messages %}
+{% for message in messages %} {{ message }} {% endfor %}
+{% endif %} {% block content %} {% endblock %}
