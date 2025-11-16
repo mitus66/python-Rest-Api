@@ -1,1 +1,0 @@
-[Презентація](https://docs.google.com/presentation/d/17Y8LVgpA-ev3lKPpz4gLIIqsej-lHzRyU9CCYE6SJcU/edit?usp=sharing)
