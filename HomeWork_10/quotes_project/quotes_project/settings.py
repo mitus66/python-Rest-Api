@@ -131,6 +131,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = 'users:login'
+
 
 # Звідси починається логіка підключення до MongoDB
 MONGO_URI = os.getenv("MONGO_URI")

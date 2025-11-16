@@ -1,0 +1,13 @@
+{% extends 'quotes_app/base.html' %} {% block title %}Про автора: {{ author.fullname }}{% endblock %} {% block content %}
+{{ author.fullname }}
+Дата народження: {{ author.born_date }}
+
+Місце народження: {{ author.born_location }}
+
+Опис:
+
+{{ author.description }}
+
+Повернутися до цитат
+
+{% endblock %}

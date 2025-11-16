@@ -1,0 +1,11 @@
+{% extends 'quotes_app/base.html' %} {% block title %}Вхід{% endblock %} {% block content %}
+Вхід
+{% csrf_token %} {% for field in login_form %}
+{{ field.label }}: {{ field }} {% for error in field.errors %}
+{{ error }}
+
+{% endfor %}
+{% endfor %} Увійти
+Не маєте акаунту? Зареєструватися
+
+{% endblock %}

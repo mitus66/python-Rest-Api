@@ -1,33 +1,15 @@
-{% extends "noteapp/base.html" %}
+{% extends 'quotes/base.html' %}
+
+{% block title %}Log in{% endblock %}
 
 {% block content %}
-
-{% if messages %}
-<div>
-    {% for message in messages %}
-    <div {% if message.tags %} class="alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
-    {% endfor %}
+<div class="container mx-auto p-4">
+    <h1 class="text-3xl font-bold mb-4">Вхід</h1>
+    <form method="post" class="space-y-4">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.GET.next }}">
+        {{ form.as_p }}
+        <button type="submit" class="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600">Увійти</button>
+    </form>
 </div>
-{% endif %}
-
-<form action="{% url 'users:login' %}" method="post">
-    {% csrf_token %}
-    <div>
-        <label> Username:
-            {{ form.username }}
-        </label>
-    </div>
-
-    <div>
-        <label>Password:
-            {{ form.password }}
-        </label>
-    </div>
-
-    <div class="grid">
-        <button type="submit">Submit</button>
-        <button type="reset" class="secondary">Reset</button>
-    </div>
-</form>
-
 {% endblock %}
