@@ -8,4 +8,3 @@
 
 7. python manage.py createsuperuser
 8. python manage.py runserver
-

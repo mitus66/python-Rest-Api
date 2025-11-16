@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  addressbook-cli:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: addressbook
+    stdin_open: true      # дозволяє інтерактивність (input)
+    tty: true             # дозволяє використовувати CLI-режим
+    volumes:
+      - .:/app            # зберігає дані (наприклад, addressbook.pkl)
+    working_dir: /app
+    command: ["python", "addressbook.py"]
+
+#services:
+#  addressbook:
+#    build: .
+#    container_name: addressbook-cli
+#    stdin_open: true
+#    tty: true

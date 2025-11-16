@@ -1,10 +1,22 @@
 # mail_service.py
-from pathlib import Path
 from fastapi_mail import FastMail, MessageSchema, ConnectionConfig, MessageType
 from pydantic import EmailStr
-from auth import create_email_token
 from config import settings
 from jinja2 import Environment, FileSystemLoader
+
+# Правильне місце для імпорту.
+# Функція create_email_token тепер буде доступна всьому модулю mail_service.py
+from auth import create_email_token
+
+def send_verification_email(user, url):
+    # Тепер цей імпорт не потрібен, оскільки він уже зроблений зверху
+    # from auth import create_email_token
+
+    try:
+        token = create_email_token({"sub": user.email})
+        # ... інший код для надсилання листа ...
+    except Exception as e:
+        print(f"Помилка при створенні токена або відправці листа: {e}")
 
 conf = ConnectionConfig(
     MAIL_USERNAME=settings.MAIL_USERNAME,

@@ -90,12 +90,16 @@ class SimpleHTTPRequestHandler(BaseHTTPRequestHandler):
             # Send data to socket server
             sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
             sock.sendto(data, (HOST, SOCKET_PORT))
+            sock.close()
+
+            print("Sent data to UDP server:", data)
 
             self.send_response(302)
             self.send_header('Location', '/')
             self.end_headers()
         else:
             self.send_error(404, "Page Not Found")
+
 
     def render_template(self, template_name):
         template_path = TEMPLATES_DIR / template_name

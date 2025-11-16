@@ -1,4 +1,4 @@
-1. docker run --name some-postgres -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
+1. docker run --name postgres13 -p 5432:5432 -e POSTGRES_PASSWORD=postgres -d postgres
 
 2. cd ./quotes_project
 3. python manage.py makemigrations authors
